@@ -1,0 +1,18 @@
+User-agent: *
+Disallow:
+Disallow: /
+Disallow: /admin/
+Disallow: /site/error
+Disallow: /account/
+
+
+User-agent: Yandex
+Disallow:
+Disallow: /
+Disallow: /admin/
+Disallow: /site/error
+Disallow: /account/
+
+
+Host: https://oh423.com/
+Sitemap: https://oh423.com/sitemap.xml

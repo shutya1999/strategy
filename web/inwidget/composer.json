@@ -1,0 +1,21 @@
+{
+    "name": "aik27/inwidget",
+    "type": "library",
+    "description": "Show pictures from instagram.com on your site!",
+    "keywords": ["instagram","widget"],
+    "homepage": "http://inwidget.ru/",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexandr Kazarmshchikov",
+            "email": "aik@inwidget.ru"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": ">=5.4.0",
+	    "ext-curl": "*",
+	    "ext-json": "*"
+    }
+}

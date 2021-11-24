@@ -1,0 +1,86 @@
+body{
+    font-family: 'IBM Plex Sans', sans-serif !important;
+}
+
+.icon-select-container:hover, .icon-select-container.active{
+    border: 3px solid #ce8741;
+}
+.icon-select-container{
+    border: 3px solid #fff;
+    cursor: pointer;
+}
+.img{
+    max-width: 150px;
+    max-height: 100px;
+    overflow: hidden;
+}
+.img img{
+    width: 100%;
+    height: auto;
+}
+.tags-container{
+    padding: 5px;
+    border: 1px solid #d2d6de;
+    min-height: 34px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.tags-container.active{
+    background: #e1ffe9;
+    border: 1px solid #a5a8af;
+}
+.services-select-btn{
+    outline: none !important;
+}
+
+.btn-light-blue{
+    font-family: 'Open Sans', serif;
+    font-style: normal;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    color: #20AAF7;
+    padding: 19px 40px;
+    background: #DAEFFA;
+    box-shadow: 0px 3px 12px rgba(0, 0, 0, 0.08);
+    border-radius: 2px;
+    border: none;
+}
+.btn-light-blue:hover{
+    color: #FDFDFD;
+    background: #20AAF7;
+    box-shadow: 0px 3px 16px rgba(0, 0, 0, 0.12);
+}
+.skin-green .left-side, .skin-green .main-sidebar, .skin-green .wrapper {
+    background-color: #fbfbfb;
+}
+.skin-green .sidebar-menu>li.header {
+    color: #000;
+    background: #eaeaea;
+}
+.skin-green .sidebar a {
+    color: #5f5f5f;
+}
+.skin-green .sidebar-menu>li.active>a, .skin-green .sidebar-menu>li.menu-open>a, .skin-green .sidebar-menu>li:hover>a {
+    color: #000;
+    background: #eaeaea;
+}
+.skin-green .sidebar-menu .treeview-menu>li>a {
+    color: #5f5f5f;
+}
+.skin-green .sidebar-menu .treeview-menu>li.active>a, .skin-green .sidebar-menu .treeview-menu>li>a:hover {
+    color: #000;
+}
+.skin-green .sidebar-menu>li>.treeview-menu {
+    margin: 0 1px;
+    margin-left: 5px;
+    background: #eaeaea;
+}
+.skin-green .main-header .navbar .sidebar-toggle, .skin-green .user-panel>.info, .skin-green .user-panel>.info>a {
+    color: #000;
+}
+.btn-active-col{
+    margin-right: 15px;
+}
