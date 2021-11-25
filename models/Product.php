@@ -16,4 +16,8 @@ class Product extends ActiveRecord
     public static function tableName(){
         return "product";
     }
+
+    public function getCases(){
+        return $this->hasMany(Cases::class, ['product_id' => 'id']);
+    }
 }

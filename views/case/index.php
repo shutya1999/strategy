@@ -1,9 +1,18 @@
 <?php
 use yii\helpers\VarDumper;
 use yii\widgets\Breadcrumbs;
+use yii\widgets\LinkPager;
+use app\widgets\PaginationWidget;
+
 $this->registerCssFile('@web/css/case.css', ['depends' => \app\assets\AppAsset::class]);
 
 $this->params['breadcrumbs'][] = 'Кейси';
+$lang_id = $lang->url;
+$lang_url = ($lang->url == 'ua') ? '' : $lang->url . "/" ;
+?>
+
+<?php
+//VarDumper::dump(parse_url(Yii::$app->getRequest()->url));
 ?>
 
 <header class="header-case">
@@ -20,41 +29,29 @@ $this->params['breadcrumbs'][] = 'Кейси';
 
     <div class="nav-pagin case-catalog_js">
         <div class="nav-pagin__wrap df">
-            <div class="item active" data-nav-id="organi_samovryaduvanya">Органи самововрядування</div>
-            <div class="item" data-nav-id="gromadski_organizaciy">Громадські органзації</div>
-            <div class="item" data-nav-id="biznes">Бізнес</div>
+            <?php $id = (isset($_GET['id'])) ? $_GET['id'] : 1 ?>
+            <?php foreach ($products as $product): ?>
+                <div class="item <?= ($product['id'] == $id) ? 'active' : '' ?>" data-nav-id="<?= $product['id'] ?>"><?= $product['name_slider_'.$lang_id] ?></div>
+            <?php endforeach; ?>
         </div>
     </div>
 
     <div class="case-catalog">
         <?php foreach ($cases as $case): ?>
-            <div class="item show">
-                <div class="img">
-                    <picture>
-                        <source srcset="/img/index/<?= $case['preview'] ?>.webp" type="image/webp">
-                        <source srcset="/img/index/<?= $case['preview'] ?>.jpg" type="image/jpeg">
-                        <img src="/img/index/<?= $case['preview'] ?>.jpg" alt="Стратегічна сесія для Mashable">
-                    </picture>
+                <div class="item show">
+                    <a href="/<?= $lang_url . "case/" . $case['url'] ?>" class="img">
+                        <picture>
+                            <source srcset="/img/index/<?= $case['preview'] ?>.webp" type="image/webp">
+                            <source srcset="/img/index/<?= $case['preview'] ?>.jpg" type="image/jpeg">
+                            <img src="/img/index/<?= $case['preview'] ?>.jpg" alt="Стратегічна сесія для Mashable">
+                        </picture>
+                    </a>
+                    <h2 class="h5"><a href="/<?= $lang_url . "case/" . $case['url'] ?>"><?= $case['title_'.$lang_id] ?></a></h2>
+                    <p><?= $case['s_desc_'.$lang_id] ?></p>
                 </div>
-                <h2 class="h5"><?= $case['title_ua'] ?></h2>
-                <p><?= $case['s_desc_ua'] ?></p>
-            </div>
         <?php endforeach; ?>
     </div>
 
-    <div class="pagination">
-        <div class="btn btn-border">Завантажити більше</div>
-        <div class="pagination-content">
-            <a href="" class="pagin-elem arrow prev">Назад</a>
-            <a href="" class="pagin-elem">1</a>
-            <a href="" class="pagin-elem">2</a>
-
-            <p class="dots">...</p>
-
-            <a href="" class="pagin-elem active">7</a>
-            <a href="" class="pagin-elem">8</a>
-
-            <a href="" class="pagin-elem arrow next">Вперед</a>
-        </div>
-
-    </div>
+    <?php if (isset($pagination_settings)) :?>
+        <?= PaginationWidget::widget($pagination_settings) ?>
+    <?php endif; ?>

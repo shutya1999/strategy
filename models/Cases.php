@@ -17,4 +17,8 @@ class Cases extends ActiveRecord
     {
         return 'case';
     }
+
+    public function getProduct(){
+        return $this->hasOne(Product::class, ['id' => 'product_id']);
+    }
 }

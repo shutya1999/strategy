@@ -44,6 +44,7 @@ foreach ($localArr as $item){
 
 
 AppAsset::register($this);
+$this->registerJsVar('lang', $langCur->url)
 ?>
 <?php $this->beginPage() ?>
 <?php //require_once (Yii::getAlias('@app').'/getresponse/getresponse.php'); ?>

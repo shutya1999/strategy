@@ -27,10 +27,12 @@
   opacity: 0;
 }
 .case-catalog .item .img {
+  display: block;
   margin-bottom: 25px;
   width: 100%;
   position: relative;
   padding-bottom: 47.7%;
+  overflow: hidden;
 }
 .case-catalog .item .img picture {
   width: 100%;
@@ -44,14 +46,25 @@
   object-fit: cover;
   -o-object-position: center;
   object-position: center;
+  transition: all 0.3s;
 }
 .case-catalog .item .h5 {
   line-height: 27px;
   margin-bottom: 15px;
 }
+.case-catalog .item .h5 a {
+  color: #30313A;
+  transition: all 0.3s;
+}
 .case-catalog .item.show {
   transform: translateY(0px);
   opacity: 1;
+}
+.case-catalog .item:hover .img img {
+  transform: scale(1.05);
+}
+.case-catalog .item:hover .h5 a {
+  color: #474CDE;
 }
 
 .case-page .subtitle {

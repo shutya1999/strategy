@@ -1,4 +1,8 @@
 window.addEventListener('load', function () {
+    //Ссылка для конкретного языка
+    //Текущий язык передается в шаблоне и хранится в переменной "lang"
+    let lang_url = (lang === 'ua') ? '' : lang + '/';
+
     //Слайдер кейсов на главной
     const sliderCase = new Swiper('.case-slider', {
         loop: true,
@@ -83,8 +87,7 @@ window.addEventListener('load', function () {
     if (navCase.length !== 0){
         navCase.forEach(item => {
             item.addEventListener('click', function () {
-
-                let id = item.dataset.navId;
+                let id = item.dataset.navId;//url выбраной услуги
 
                 removeClass(navCase, 'active');
                 item.classList.add('active');
@@ -515,44 +518,91 @@ window.addEventListener('load', function () {
         navCaseCatalog.forEach(nav_item => {
             nav_item.addEventListener('click', function () {
                 let id = nav_item.dataset.navId;
+                let pagination = document.querySelector('.pagination');
 
                 removeClass(navCaseCatalog, 'active');
                 nav_item.classList.add('active');
 
+                $.ajax({
+                    url: '/case/',
+                    data: {
+                        id: id,
+                        select: 1
+                    },
+                    method: "POST",
+                    success: function (data) {
+                        window.history.pushState('','', window.location.pathname + `?id=${id}`);
 
-                caseCatalog.innerHTML = '';
+                        caseCatalog.innerHTML = data.case;
+                        if(pagination !== null){
+                            pagination.remove();
+                        }
+                        caseCatalog.insertAdjacentHTML('afterend', data.pagination);
 
-                data_sliderCase[id].forEach(slide => {
-
-                    let newSlide = document.createElement("div");
-                    newSlide.className = 'item';
-                    newSlide.innerHTML = `                  
-                        <div class="img">
-                            <picture>
-                                <source srcset="assets/img/index/${slide.img}.webp" type="image/webp">
-                                <source srcset="assets/img/index/${slide.img}.jpg" type="image/jpeg">
-                                <img src="assets/img/index/${slide.img}.jpg" alt="${slide.name}">
-                            </picture>
-                        </div>
-                        <p class="h5">${slide.name}</p>
-                        <p>${slide.desc}</p>                 
-                    `;
-                    caseCatalog.insertAdjacentElement('beforeend', newSlide);
+                        // console.log(pagination.querySelector('.btn-more-case'));
+                        // console.log(id);
+                        // pagination.querySelector('.btn-more-case').dataset.id = id;
+                        //Анимация появления
+                        let slides = caseCatalog.querySelectorAll('.item');
+                        for (let i = 0; i < slides.length; i++) {
+                            setTimeout(function () {
+                                slides[i].classList.add('show');
+                            }, 150 * i)
+                        }
+                        getMoreCase();
+                    }
                 })
-
-                //Анимация появления
-                let slides = caseCatalog.querySelectorAll('.item');
-                console.log(slides);
-                for (let i = 0; i < slides.length; i++) {
-                    setTimeout(function () {
-                        slides[i].classList.add('show');
-                    }, 150 * i)
-                }
-
             })
         })
     }
 
+    //Кнопка показать еще в каталоге кейсов
+    function getMoreCase(){
+        let btnMoreCase = document.querySelector('.btn-more-case');
+        if (btnMoreCase !== null){
+            btnMoreCase.addEventListener('click', function () {
+                let nextPage = btnMoreCase.dataset.currentPage;
+                let id = document.querySelector('.case-catalog_js .item.active').dataset.navId;
+                let caseCatalog = document.querySelector('.case-catalog');
+                let pagination = document.querySelector('.pagination');
+
+                $.ajax({
+                    url: '/case/',
+                    data: {
+                        id: id,
+                        more: 1,
+                        page: nextPage
+                    },
+                    method: "POST",
+                    success: function (data) {
+                        // console.log(btnMoreCase);
+                        console.log(data);
+                        caseCatalog.insertAdjacentHTML('beforeend', data.case);
+
+                        //Анимация появления
+                        let slides = caseCatalog.querySelectorAll('.item');
+                        for (let i = 0; i < slides.length; i++) {
+                            setTimeout(function () {
+                                slides[i].classList.add('show');
+                            }, 150 * i)
+                        }
+
+                        if(pagination !== null){
+                            pagination.remove();
+                        }
+                        caseCatalog.insertAdjacentHTML('afterend', data.pagination);
+                        getMoreCase();
+                        // if (data.totalCases < 2){
+                        //     btnMoreCase.remove();
+                        // }else {
+                        //     btnMoreCase.dataset.currentPage = +nextPage + 1;
+                        // }
+                    }
+                })
+            })
+        }
+    }
+    getMoreCase();
 
     //Слайдер фото на странице кейса
     const swiperPhotogallery = new Swiper('.gallery-slider', {
@@ -617,9 +667,11 @@ window.addEventListener('load', function () {
     let filters_item = document.querySelectorAll('.filters-mob .filter-mob__title');
     let btn_filter_mob = document.querySelector('.filters-mob .filters-mob__title');
     let filters_mob = document.querySelector('.filters-mob .filters-mob__content');
-    btn_filter_mob.addEventListener('click', function () {
-        filters_mob.classList.toggle('active');
-    })
+    if (btn_filter_mob !== null){
+        btn_filter_mob.addEventListener('click', function () {
+            filters_mob.classList.toggle('active');
+        })
+    }
 
     if (filters_item.length !== 0){
         filters_item.forEach(item => {
