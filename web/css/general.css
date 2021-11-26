@@ -1471,6 +1471,10 @@ footer .footer-bottom .container p:last-child a {
 }
 .pagination .dots {
   margin: 0 11px;
+  display: none;
+}
+.pagination .dots.active {
+  display: block;
 }
 .pagination .btn {
   margin-bottom: 40px;
@@ -2035,6 +2039,9 @@ footer .footer-bottom .container p:last-child a {
   .pagination {
     margin: 30px 0 50px 0;
   }
+  .pagination .pagination-content {
+    display: none;
+  }
   .pagination .pagin-elem {
     margin: 0 8px;
   }
@@ -2042,7 +2049,7 @@ footer .footer-bottom .container p:last-child a {
     display: none;
   }
   .pagination .btn {
-    margin-bottom: 30px;
+    margin-bottom: 0;
   }
 
   .popup {

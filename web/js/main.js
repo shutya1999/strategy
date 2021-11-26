@@ -527,7 +527,7 @@ window.addEventListener('load', function () {
                     url: '/case/',
                     data: {
                         id: id,
-                        select: 1
+                        page: 1
                     },
                     method: "POST",
                     success: function (data) {
@@ -539,9 +539,6 @@ window.addEventListener('load', function () {
                         }
                         caseCatalog.insertAdjacentHTML('afterend', data.pagination);
 
-                        // console.log(pagination.querySelector('.btn-more-case'));
-                        // console.log(id);
-                        // pagination.querySelector('.btn-more-case').dataset.id = id;
                         //Анимация появления
                         let slides = caseCatalog.querySelectorAll('.item');
                         for (let i = 0; i < slides.length; i++) {
@@ -550,6 +547,7 @@ window.addEventListener('load', function () {
                             }, 150 * i)
                         }
                         getMoreCase();
+                        editPagination();
                     }
                 })
             })
@@ -570,7 +568,6 @@ window.addEventListener('load', function () {
                     url: '/case/',
                     data: {
                         id: id,
-                        more: 1,
                         page: nextPage
                     },
                     method: "POST",
@@ -592,11 +589,7 @@ window.addEventListener('load', function () {
                         }
                         caseCatalog.insertAdjacentHTML('afterend', data.pagination);
                         getMoreCase();
-                        // if (data.totalCases < 2){
-                        //     btnMoreCase.remove();
-                        // }else {
-                        //     btnMoreCase.dataset.currentPage = +nextPage + 1;
-                        // }
+                        editPagination();
                     }
                 })
             })
@@ -604,6 +597,60 @@ window.addEventListener('load', function () {
     }
     getMoreCase();
 
+    function editPagination() {
+        let pagination = document.querySelector('.pagination');
+
+        if (pagination !== null){
+            let paginPage = Array.from(pagination.querySelectorAll('.pagin-page')),
+                paginCount = paginPage.length;
+            let showCount = 2;
+
+            if (paginCount > 5){
+                let pos_active = +pagination.querySelector('.pagin-page.active').dataset.index;
+
+                if (pos_active > 2 && pos_active < paginCount - 3){//Если находимся в середине пагинации
+                    let active_elem = paginPage.splice(pos_active - 1, 3);//Три активных элемента
+
+                    for (let i = 0; i < paginPage.length; i++){
+                        for (let j = 0; j < active_elem.length; j++){
+                            //Удалить все кроме активных, первого и последнего
+                            if (paginPage[i] !== active_elem[j] && i !== 0 && i !== paginPage.length - 1){
+                                paginPage[i].remove();
+                            }
+                        }
+                    }
+
+                    paginPage[0].insertAdjacentHTML('afterend', '<p class="dots">...</p>')
+                    paginPage[paginPage.length - 1].insertAdjacentHTML('beforebegin', '<p class="dots">...</p>')
+                }else if (pos_active < 3){//если находимся в начале пагинации
+                    let active_elem = paginPage.splice(0, pos_active + 2);//Первые активные элементы
+
+                    for (let i = 0; i < paginPage.length; i++){
+                        if (i !== paginPage.length - 1){
+                            paginPage[i].remove();
+                        }
+                    }
+
+                    active_elem[pos_active + 1].insertAdjacentHTML('afterend', '<p class="dots">...</p>')
+                }else if (pos_active > paginCount - 4){
+                    let pos_end = (paginCount - pos_active) + 1;
+
+                    let active_elem = paginPage.splice(pos_end * -1, pos_end);//Три активных элемента
+
+                    for (let i = 0; i < paginPage.length; i++){
+                        for (let j = 0; j < active_elem.length; j++){
+                            //Удалить все кроме активных и последнего
+                            if (paginPage[i] !== active_elem[j] && i !== 0){
+                                paginPage[i].remove();
+                            }
+                        }
+                    }
+                    paginPage[0].insertAdjacentHTML('afterend', '<p class="dots">...</p>')
+                }
+            }
+        }
+    }
+    editPagination();
     //Слайдер фото на странице кейса
     const swiperPhotogallery = new Swiper('.gallery-slider', {
         speed: 700,

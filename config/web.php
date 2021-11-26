@@ -21,6 +21,10 @@ $config = [
 //            'langProviderClass' => 'app\modules\LangProvider'
         ],
         */
+        'admin_strategy' => [
+            'class' => 'app\modules\admin_strategy\Module',
+            'layout' => 'admin'
+        ],
         'user' => [
             //https://github.com/dektrium/yii2-user
             'class' => 'dektrium\user\Module',
@@ -84,11 +88,11 @@ $config = [
             'class' => 'yii\caching\FileCache',
         ],
         'user' => [
-//            'identityClass' => 'app\models\User',
+            'identityClass' => 'app\models\User',
             'enableAutoLogin' => true,
 //            'class' => 'app\components\User',
-            'identityClass' => 'dektrium\user\models\User',
-            'loginUrl' => ['/user/security/login'],
+//            'identityClass' => 'dektrium\user\models\User',
+            'loginUrl' => '/admin_strategy/default/login/',
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',

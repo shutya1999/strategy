@@ -23,23 +23,23 @@ $this->registerCssFile('@web/css/case.css', ['depends' => \app\assets\AppAsset::
         <div class="main-img">
             <div class="_desc">
                 <picture>
-                    <source srcset="assets/img/case/case-desc.webp" type="image/webp">
-                    <source srcset="assets/img/case/case-desc.jpg" type="image/jpeg">
-                    <img src="assets/img/case/case-desc.jpg" alt="Стратегічна сесія для Mashable">
+                    <source srcset="/img/case/case-desc.webp" type="image/webp">
+                    <source srcset="/img/case/case-desc.jpg" type="image/jpeg">
+                    <img src="/img/case/case-desc.jpg" alt="Стратегічна сесія для Mashable">
                 </picture>
             </div>
             <div class="_tablet">
                 <picture>
-                    <source srcset="assets/img/case/case-tablet.webp" type="image/webp">
-                    <source srcset="assets/img/case/case-tablet.jpg" type="image/jpeg">
-                    <img src="assets/img/case/case-tablet.jpg" alt="Стратегічна сесія для Mashable">
+                    <source srcset="/img/case/case-tablet.webp" type="image/webp">
+                    <source srcset="/img/case/case-tablet.jpg" type="image/jpeg">
+                    <img src="/img/case/case-tablet.jpg" alt="Стратегічна сесія для Mashable">
                 </picture>
             </div>
             <div class="_mob">
                 <picture>
-                    <source srcset="assets/img/case/case-mob.webp" type="image/webp">
-                    <source srcset="assets/img/case/case-mob.jpg" type="image/jpeg">
-                    <img src="assets/img/case/case-mob.jpg" alt="Стратегічна сесія для Mashable">
+                    <source srcset="/img/case/case-mob.webp" type="image/webp">
+                    <source srcset="/img/case/case-mob.jpg" type="image/jpeg">
+                    <img src="/img/case/case-mob.jpg" alt="Стратегічна сесія для Mashable">
                 </picture>
             </div>
             <p class="author">Фото: Unsplash</p>
@@ -146,9 +146,9 @@ $this->registerCssFile('@web/css/case.css', ['depends' => \app\assets\AppAsset::
             <div class="swiper-slide">
                 <div class="img">
                     <picture>
-                        <source srcset="assets/img/case/gallery-1.webp" type="image/webp">
-                        <source srcset="assets/img/case/gallery-1.jpg" type="image/jpeg">
-                        <img src="assets/img/case/gallery-1.jpg" alt="Стратегічна сесія для Mashable">
+                        <source srcset="/img/case/gallery-1.webp" type="image/webp">
+                        <source srcset="/img/case/gallery-1.jpg" type="image/jpeg">
+                        <img src="/img/case/gallery-1.jpg" alt="Стратегічна сесія для Mashable">
                     </picture>
                 </div>
                 <p class="desc">
@@ -159,9 +159,9 @@ $this->registerCssFile('@web/css/case.css', ['depends' => \app\assets\AppAsset::
             <div class="swiper-slide">
                 <div class="img">
                     <picture>
-                        <source srcset="assets/img/case/gallery-1.webp" type="image/webp">
-                        <source srcset="assets/img/case/gallery-1.jpg" type="image/jpeg">
-                        <img src="assets/img/case/gallery-1.jpg" alt="Стратегічна сесія для Mashable">
+                        <source srcset="/img/case/gallery-1.webp" type="image/webp">
+                        <source srcset="/img/case/gallery-1.jpg" type="image/jpeg">
+                        <img src="/img/case/gallery-1.jpg" alt="Стратегічна сесія для Mashable">
                     </picture>
                 </div>
                 <p class="desc">
@@ -172,9 +172,9 @@ $this->registerCssFile('@web/css/case.css', ['depends' => \app\assets\AppAsset::
             <div class="swiper-slide">
                 <div class="img">
                     <picture>
-                        <source srcset="assets/img/case/gallery-1.webp" type="image/webp">
-                        <source srcset="assets/img/case/gallery-1.jpg" type="image/jpeg">
-                        <img src="assets/img/case/gallery-1.jpg" alt="Стратегічна сесія для Mashable">
+                        <source srcset="/img/case/gallery-1.webp" type="image/webp">
+                        <source srcset="/img/case/gallery-1.jpg" type="image/jpeg">
+                        <img src="/img/case/gallery-1.jpg" alt="Стратегічна сесія для Mashable">
                     </picture>
                 </div>
                 <p class="desc">
@@ -185,9 +185,9 @@ $this->registerCssFile('@web/css/case.css', ['depends' => \app\assets\AppAsset::
             <div class="swiper-slide">
                 <div class="img">
                     <picture>
-                        <source srcset="assets/img/case/gallery-1.webp" type="image/webp">
-                        <source srcset="assets/img/case/gallery-1.jpg" type="image/jpeg">
-                        <img src="assets/img/case/gallery-1.jpg" alt="Стратегічна сесія для Mashable">
+                        <source srcset="/img/case/gallery-1.webp" type="image/webp">
+                        <source srcset="/img/case/gallery-1.jpg" type="image/jpeg">
+                        <img src="/img/case/gallery-1.jpg" alt="Стратегічна сесія для Mashable">
                     </picture>
                 </div>
                 <p class="desc">
@@ -198,9 +198,9 @@ $this->registerCssFile('@web/css/case.css', ['depends' => \app\assets\AppAsset::
             <div class="swiper-slide">
                 <div class="img">
                     <picture>
-                        <source srcset="assets/img/case/gallery-1.webp" type="image/webp">
-                        <source srcset="assets/img/case/gallery-1.jpg" type="image/jpeg">
-                        <img src="assets/img/case/gallery-1.jpg" alt="Стратегічна сесія для Mashable">
+                        <source srcset="/img/case/gallery-1.webp" type="image/webp">
+                        <source srcset="/img/case/gallery-1.jpg" type="image/jpeg">
+                        <img src="/img/case/gallery-1.jpg" alt="Стратегічна сесія для Mashable">
                     </picture>
                 </div>
                 <p class="desc">
@@ -229,9 +229,9 @@ $this->registerCssFile('@web/css/case.css', ['depends' => \app\assets\AppAsset::
                 <div class="swiper-slide show _organi_samovryaduvanya active">
                     <div class="img">
                         <picture>
-                            <source srcset="assets/img/index/case-1.webp" type="image/webp">
-                            <source srcset="assets/img/index/case-1.jpg" type="image/jpeg">
-                            <img src="assets/img/index/case-1.jpg" alt="H-Strategy">
+                            <source srcset="/img/index/case-1.webp" type="image/webp">
+                            <source srcset="/img/index/case-1.jpg" type="image/jpeg">
+                            <img src="/img/index/case-1.jpg" alt="H-Strategy">
                         </picture>
                     </div>
                     <p class="h5 name">Стратегічна сесія для Mashable</p>
@@ -242,9 +242,9 @@ $this->registerCssFile('@web/css/case.css', ['depends' => \app\assets\AppAsset::
                 <div class="swiper-slide show _gromadski_organizaciy">
                     <div class="img">
                         <picture>
-                            <source srcset="assets/img/index/case-1.webp" type="image/webp">
-                            <source srcset="assets/img/index/case-1.jpg" type="image/jpeg">
-                            <img src="assets/img/index/case-1.jpg" alt="H-Strategy">
+                            <source srcset="/img/index/case-1.webp" type="image/webp">
+                            <source srcset="/img/index/case-1.jpg" type="image/jpeg">
+                            <img src="/img/index/case-1.jpg" alt="H-Strategy">
                         </picture>
                     </div>
                     <p class="h5 name">Стратегічна сесія для Львівської міської Ради</p>
@@ -260,9 +260,9 @@ $this->registerCssFile('@web/css/case.css', ['depends' => \app\assets\AppAsset::
                 <div class="swiper-slide show _biznes">
                     <div class="img">
                         <picture>
-                            <source srcset="assets/img/index/case-1.webp" type="image/webp">
-                            <source srcset="assets/img/index/case-1.jpg" type="image/jpeg">
-                            <img src="assets/img/index/case-1.jpg" alt="H-Strategy">
+                            <source srcset="/img/index/case-1.webp" type="image/webp">
+                            <source srcset="/img/index/case-1.jpg" type="image/jpeg">
+                            <img src="/img/index/case-1.jpg" alt="H-Strategy">
                         </picture>
                     </div>
                     <p class="h5 name">Стратегічна сесія для Mashable</p>

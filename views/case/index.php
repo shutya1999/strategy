@@ -29,9 +29,9 @@ $lang_url = ($lang->url == 'ua') ? '' : $lang->url . "/" ;
 
     <div class="nav-pagin case-catalog_js">
         <div class="nav-pagin__wrap df">
-            <?php $id = (isset($_GET['id'])) ? $_GET['id'] : 1 ?>
             <?php foreach ($products as $product): ?>
-                <div class="item <?= ($product['id'] == $id) ? 'active' : '' ?>" data-nav-id="<?= $product['id'] ?>"><?= $product['name_slider_'.$lang_id] ?></div>
+<!--                --><?php //$id = (isset($_GET['id'])) ? $_GET['id'] : ($product['active_tag'] == 1) ? $product['active_tag'] : '';  ?>
+                <div class="item <?= ($product['id'] == $active_id) ? 'active' : '' ?>" data-nav-id="<?= $product['id'] ?>"><?= $product['tag_'.$lang_id] ?></div>
             <?php endforeach; ?>
         </div>
     </div>

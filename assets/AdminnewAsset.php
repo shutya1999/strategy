@@ -29,8 +29,8 @@ class AdminnewAsset extends AssetBundle
         'js/alte/perfect-scrollbar.jquery.min.js',
         'js/alte/sidebarmenu.js',
         'js/alte/custom.js',
-        'js/jquery-ui.min.js',
-        'js/jquery.inputmask.bundle.min.js', //https://github.com/RobinHerbots/Inputmask
+        'js/admin/jquery-ui.min.js',
+        'js/admin/jquery.inputmask.bundle.min.js', //https://github.com/RobinHerbots/Inputmask
 //        'js/uploader/javascript.js',
         'js/alte/main.js',
     ];

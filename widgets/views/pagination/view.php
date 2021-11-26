@@ -1,7 +1,6 @@
 <?php
 $pageUrl = '/' . $lang_url . Yii::$app->getRequest()->pathInfo;
 ?>
-
 <div class="pagination">
     <?php if ($next_page): ?>
         <div class="btn btn-border <?= $btnMoreName ?>" data-current-page="<?= $next_page ?>" data-id="">Завантажити більше</div>
@@ -16,7 +15,7 @@ $pageUrl = '/' . $lang_url . Yii::$app->getRequest()->pathInfo;
 
         <?php for ($i = 1; $i <= $pageTotal; $i++): ?>
             <?php $active = ($i == $currentPage) ? 'active' : '' ?>
-            <a href="<?= $link . "&page=" . $i?>" class="pagin-elem <?= $active ?>"><?= $i ?></a>
+            <a href="<?= $link . "&page=" . $i?>" class="pagin-page pagin-elem <?= $active ?>" data-index="<?= $i - 1 ?>"><?= $i ?></a>
         <?php endfor; ?>
 
         <?php if ($next_page) :?>
