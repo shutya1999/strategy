@@ -25,7 +25,6 @@
         "firebase/php-jwt": "^5.0",
         "kartik-v/yii2-mpdf": "dev-master",
         "linslin/yii2-curl": "*",
-        "kartik-v/yii2-widget-fileinput": "dev-master",
         "contao/imagine-svg": "^0.2.2",
         "dektrium/yii2-user": "0.9.14",
         "swiftmailer/swiftmailer": "5.4.12"
@@ -34,7 +33,8 @@
         "yiisoft/yii2-codeception": "*",
         "yiisoft/yii2-debug": "*",
         "yiisoft/yii2-gii": "*",
-        "yiisoft/yii2-faker": "*"
+        "yiisoft/yii2-faker": "*",
+        "kartik-v/yii2-widget-fileinput": "*"
     },
     "config": {
         "process-timeout": 1800

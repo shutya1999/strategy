@@ -1,6 +1,166 @@
 Change Log: `bootstrap-fileinput`
 =================================
 
+## version 5.2.6
+
+**Date**: 23-Sep-2021
+
+- (bug #1758): Correct bootstrap module parser.
+- (enh #1756): Replace `getLoadingUrl` to a new `$h.getZoomPlaceholder` method.
+
+## version 5.2.5
+
+**Date**: 19-Sep-2021
+
+- (enh #1755): Simplify NPM module handling.
+
+
+## version 5.2.4
+
+**Date**: 18-Sep-2021
+
+- (enh #1754): Default button styling & Explorer theme enhancements.
+- (enh #1753): Enhance NPM module handling.
+- (enh #1752): Enhance exif properties validation .
+- (enh #1750): Enhancements to file caption icon and input group styling.
+- (enh #1744): Enhance zoom cache temporary url to use loader image.
+- (enh #1741): Fix zoom cache 404 console warnings.
+
+## version 5.2.3
+
+**Date**: 25-Jul-2021
+
+- (enh #1738): Enhancements to zoomed preview to include additional description and better title styling.
+  - The `initialPreviewConfig` will include an additional property `description`
+  - The modal layout template will include a `kv-zoom-description` container which will render the description from `initialPreviewConfig`. This container will be hidden if no description found.
+  - The modal layout template will include `kv-zoom-caption` container which will render the `caption` or `filename` from `initialPreviewConfig`. If that is not found it will default to `msgZoomModalHeading`.
+  - The modal layout template will include `kv-zoom-size` container which will render the `size` as set in `initialPreviewConfig`.
+  - The description will be shown as a bubble text over the image/content.
+  - Additional new property `showDescriptionClose` (boolean). Will show a close icon to close the description bubble text when set to `true`. Defaults to `true`.
+- (enh #1737): Configurable file size units and bitrate units. New plugin properties configurable and translateable via locale language files.
+  - `sizeUnits` defaults to `['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']`
+  - `bitRateUnits` defaults to `['B/s', 'KB/s', 'MB/s', 'GB/s', 'TB/s', 'PB/s', 'EB/s', 'ZB/s', 'YB/s']`
+- (enh #1736): Correct byte to KB conversion.
+  - new property `bytesToKB` which defaults to `1024` is used for conversion.
+- (enh #1735): Correct file caption reset after thumbnail delete.
+- (bug #1734): Correct zoom data refresh for each individual file upload.
+- (enh #1731): Enhance RTL Styling for bootstrap 4/5 input groups.
+- (enh #1730): Enhancements for bootstrap input group styles.
+  - New plugin option `inputGroupClass` - defaults to empty string
+  - Can be set to `input-group-lg` or `input-group-sm` to get bootstrap input group styles
+  - Enhanced caption icon styling to match the bootstrap input group styles
+- (enh #1727): Correct zoom navigation for reverse preview order.
+- (enh #1726): Update Chinese translations.
+- (enh #1722): Enhance zoom cache rendering and carousel navigation indicators.
+- (enh #1721): Correct `fileselect` event triggering.
+- (enh #1720): Enhance parsing of `zoomData` to lazy load content asynchronously only on zoom.
+- (enh #1642): Enhance `filebatchpreupload` event listening for effective aborting.
+
+## version 5.2.2
+
+**Date**: 19-Jun-2021
+
+- (enh #1719): Show loading / processing when browse button used for file selection
+- (enh #1718): Enhancements for Bootstrap 5.x & New Theme
+    - Default to use bootstrap 5.x icons instead of glyphicons
+    - Correct `layoutTemplates.main2` to use wrapper container for the buttons to use `mainClass`
+    - Create a new theme `bs5` to support bootstrap 5.x icons and styles
+    - This is a BC breaking change - which will remove GLYPHICONS as default icons and replace them with Bootstrap 5.x Icon Library. Users must load the Bootstrap icons CSS on their pages for this new change to take effect (as mentioned in docs).
+- (enh #1716): Update Czech Translations.
+- (enh #1715): Update Slovak Translations.
+- (enh #1714): Various enhancements to file caption styling and file preview processing.
+- (enh #1713): Allow pasting files and images from clipboard to the fileinput.
+- (enh #1710): Correct isEmpty helper.
+- (bug #1709): Corrections to image resizing.
+- (bug #1708): Corrections to reselection/upload of image file deleted earlier.
+
+## version 5.2.1
+
+**Date**: 19-May-2021
+
+- (enh #1706): Enhance reset of file caption title.
+- (enh #1705): Corrections to image resizing.
+- (enh #1704): Enhance and fix CDN to use jsDelivr.
+
+## version 5.2.0
+
+**Date**: 06-May-2021
+
+- (enh #1674): Enhancements to add support for Bootstrap v5.
+    - Major release to support Bootstrap version 5.x
+    - Bootstrap version is auto detected with this release if the bootstrap javascript library is loaded
+    - Additional flexibility is provided to developer to override a specific bootstrap version by setting `$.fn.fileinputBsVersion`
+    - There is an existing issue for MODAL dialog initialization in Bootstrap library v5.x. Refer the [issue reported](https://github.com/twbs/bootstrap/issues/33840#issuecomment-833462016) at the Bootstrap 5.x library repo with a workaround.
+- (enh #1699): Update Danish Translations.
+- (enh #1698): Tab index ordering enhancements.
+  - fix tab order breaking after file caption highlight 
+  - added new property `tabIndexConfig` for configuration of tab indices for each section 
+    which defaults to (null value means no tabindex property will be set for that section) 
+~~~
+    tabIndexConfig: {
+        caption: 500,
+        browse: 500,
+        remove: 500,
+        upload: 500,
+        cancel: null,
+        pause: null,
+        modal: -1
+    }
+~~~
+- (enh #1693): Add Latvian Translations.
+- (enh #1690): Add Uzbek Cyrillic Translations.
+- (enh #1647, #1679, #1695): Correct success file thumbs init.
+
+## version 5.1.5
+
+**Date**: 03-Mar-2021
+
+- (enh #1687, #1688): Allow error history to be displayed for resumable uploads.
+    - new boolean property `resumableUploadOptions.retainErrorHistory`
+- (enh #1683): Better correct CSP Buffer Stash using CSSStyleDeclaration.
+- (enh #1681): Update Turkish Translations.
+- (bug #1678): Resumable upload error handling fixes
+    - new boolean property `resumableUploadOptions.skipErrorsAndProceed`
+    - new event `filemaxretries`
+
+## version 5.1.4
+
+**Date**: 12-Jan-2021
+
+- (enh #1672): Add namespace control on bootstrap modal show trigger to avoid interaction with other plugins.
+- (bug #1671): Correct upload button behavior in file thumbnail footer.
+- (enh #1664): Enhance upload stats and add bitrate update delay.
+- (enh #1663): Correct upload bitrate.
+- (enh #1657, #1659): Update Hungarian Translations.
+- (bug #1656): Correct error in `_getThumbFileId`.
+- (bug #1652): Correct thumb parsing error for events when `showPreview` is false.
+- (enh #1651): Pass file id in `fileuploaded` event for non-resumable ajax async uploads.
+- (enh #1650): Update Ukranian Translations.
+- (bug #1649): Correct image size validation.
+- (enh #1648): New plugin method `getFilesSize` to return sum of bytes of all files.
+- (enh #1645): Update Polish Translations.
+- (bug #1123): Fix clickable zone behavior on file validation error.
+
+## version 5.1.3
+
+**Date**: 24-Oct-2020
+
+- (enh #1644): Fix problem with outlook deleting email after drag and drop.
+- (enh #1643): Update Arabic Translations.
+- (enh #1640): Update Greek Translations.
+- (enh #1639): Update Greek Translations.
+- (enh #1638): Correct zoom cache to prevent duplicate thumb frames display.
+- (enh #1637): Remove dependency on DOM Purify Plugin.
+- (enh #1636): Enhance preview for PDF, Text & HTML.
+- (enh #1635): Enhance Text & HTML files initial preview to be read as links.
+- (bug #1632): Correct preview for plain text content.
+- (bug #1631): Correct modal dialog `aria-labelledby` binding.
+- (enh #1630): New `preProcessUpload` callback that can convert / encrypt file content before upload.
+- (enh #1627): Add bootstrap 4 progress bar animation.
+- (enh #1625): Default `minFileSize` to -1 to allow zero byte files to be uploaded.
+- (enh #1617): Better encoded file id generation.
+- (enh #1612, #1614): Remove unsupported script-inline from template and CSP buffer.
+
 ## version 5.1.2
 
 **Date**: 15-Jul-2020

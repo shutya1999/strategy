@@ -1,56 +1,34 @@
 <?php
 /**
- * @link http://www.yiiframework.com/
- * @copyright Copyright (c) 2008 Yii Software LLC
- * @license http://www.yiiframework.com/license/
+ * Created by PhpStorm.
+ * User: romai
+ * Date: 27.11.2021
+ * Time: 10:13
  */
 
 namespace app\assets;
 
+
 use yii\web\AssetBundle;
 
-/**
- * Main application asset bundle.
- *
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 2.0
- */
 class AdminAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-//        'css/bootstrap.min.css',
-//        'css/site.css',
-        'css/jquery-ui.min.css',
-        'css/alte/bootstrap-theme.min.css',
-        'css/alte/font-awesome.css',
-        'css/alte/ionicons.min.css',
-        'css/alte/AdminLTE.min.css',
-        'css/alte/skin-green.css',
-        'css/uploader/style.css',
-//        "css/daterangepicker.css",
-//        'fpdf/fpdf.css',
-        'css/alte/main.css?002',
-
+        'css/admin/bootstrap-icons.css',
+        'adminlte/dist/css/adminlte.min.css',
+        'adminlte/plugins/fontawesome-free/css/all.min.css',
+        'adminlte/dist/css/custom.css',
     ];
     public $js = [
-//        'js/alte/jquery-2.2.3.min.js',
-        'js/jquery-ui.min.js',
-//        "js/moment.min.js",
-//        "js/daterangepicker.min.js",
-//        'js/jquery-3.3.1.slim.min.js',
-//        'js/popper.min.js',
-//        'js/bootstrap.min.js',
-        'js/jquery.inputmask.bundle.min.js', //https://github.com/RobinHerbots/Inputmask
-        'js/alte/bootstrap.min.js',
-        'js/alte/bootstrap-filestyle.min.js',
-        'js/uploader/javascript.js',
-        'js/alte/main.js',
-        'js/alte/app.js',
+//        'js/jquery-1.11.3.min.js',
+//        'adminlte/plugins/jquery/jquery.min.js',
+        'adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js',
+        'adminlte/dist/js/adminlte.min.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAsset',
+//        'yii\bootstrap\BootstrapAsset',
     ];
 }

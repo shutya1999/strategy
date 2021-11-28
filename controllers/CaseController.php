@@ -81,7 +81,9 @@ class CaseController extends BaseController
 
         return $this->render('index', compact(['cases', 'products', 'lang', 'pagination_settings', 'active_id']));
     }
-    public function actionView(){
-        return $this->render('view');
+    public function actionView($url){
+        $lang = Lang::getCurrent();
+        $case = Cases::findOne(['url' => $url]);
+        return $this->render('view', compact(['case', 'lang']));
     }
 }

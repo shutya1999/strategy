@@ -23,24 +23,27 @@ $config = [
         */
         'admin_strategy' => [
             'class' => 'app\modules\admin_strategy\Module',
-            'layout' => 'admin'
+            'layout' => 'admin',
+            'defaultRoute' => 'main/index'
         ],
         'user' => [
             //https://github.com/dektrium/yii2-user
             'class' => 'dektrium\user\Module',
-            'mailer' => [
-                'sender'                => ['info@jazzplay.kyivstar.ua' => 'Admin'],
-                'welcomeSubject'        => 'Добро пожаловать в jazz',
-                'confirmationSubject'   => 'Подтвердите ваш адрес',
-                'reconfirmationSubject' => 'Запрос на смену пароля',
-                'recoverySubject'       => 'ВосстановлcookieValidationKeyение пароля',
-            ],
-            'cost' => 12,
+//            'enableAutoLogin' => true,
+//            'loginUrl' => '/admin_strategy/auth/login'
+//            'mailer' => [
+//                'sender'                => ['info@jazzplay.kyivstar.ua' => 'Admin'],
+//                'welcomeSubject'        => 'Добро пожаловать в jazz',
+//                'confirmationSubject'   => 'Подтвердите ваш адрес',
+//                'reconfirmationSubject' => 'Запрос на смену пароля',
+//                'recoverySubject'       => 'ВосстановлcookieValidationKeyение пароля',
+//            ],
+//            'cost' => 12,
 //            'admins' => ['admin','Artur'],
-            'admins' => $admins['name'],
-            'enableFlashMessages' => false,
-            'enableConfirmation' => false,
-            'enableGeneratingPassword' => true,
+//            'admins' => $admins['name'],
+//            'enableFlashMessages' => false,
+//            'enableConfirmation' => false,
+//            'enableGeneratingPassword' => true,
         ],
     ],
     'components' => [
@@ -92,7 +95,7 @@ $config = [
             'enableAutoLogin' => true,
 //            'class' => 'app\components\User',
 //            'identityClass' => 'dektrium\user\models\User',
-            'loginUrl' => '/admin_strategy/default/login/',
+            'loginUrl' => '/admin_strategy/auth/login'
         ],
         'errorHandler' => [
             'errorAction' => 'site/error',

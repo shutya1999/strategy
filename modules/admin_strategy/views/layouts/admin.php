@@ -1,181 +1,271 @@
 <?php
-
-/* @var $this \yii\web\View */
-
-/* @var $content string */
-
-use app\widgets\Alert;
+use app\assets\AdminAsset;
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\assets\AdminnewAsset;
 
-AdminnewAsset::register($this);
+\app\assets\AdminAsset::register($this);
 
-//use app\assets\AppAsset;
-//AppAsset::register($this);
+
 ?>
 
-
 <?php $this->beginPage() ?>
-    <!DOCTYPE html>
-    <html lang="<?= Yii::$app->language ?>">
-    <head>
-        <meta charset="<?= Yii::$app->charset ?>">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <?= Html::csrfMetaTags() ?>
-        <title>Кабинет</title>
-        <?php $this->head() ?>
-        <!-- Tell the browser to be responsive to screen width -->
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <!-- Favicon icon -->
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon.ico">
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    <?php $this->beginBody() ?>
-    <body class="skin-purple fixed-layout">
-    <? // Yii::$app->session->setFlash('success', "Вы успешно подписались на рассылку."); ?>
-    <? // Yii::$app->session->setFlash('error', "Такой Email уже существует."); ?>
-    <?php if (Yii::$app->session->hasFlash('success')): ?>
-        <div class="alert alert-success alert-dismissable"
-             style="position: fixed;z-index: 99;width: 320px;left: calc(50% - 160px);top: 0;">
-            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-            <h4><i class="icon fa fa-check"></i>Saved!</h4>
-            <?= Yii::$app->session->getFlash('success') ?>
-        </div>
-    <?php endif; ?>
+<!DOCTYPE html>
+<html lang="<?= Yii::$app->language ?>">
+<head>
+    <meta charset="<?= Yii::$app->charset ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?= Html::csrfMetaTags() ?>
+    <title>Кабинет</title>
+    <?php $this->head() ?>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
 
-    <?php if (Yii::$app->session->hasFlash('error')): ?>
-        <div class="alert alert-danger alert-dismissable"
-             style="position: fixed;z-index: 99;width: 320px;left: calc(50% - 160px);top: 0;">
-            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-            <h4><i class="icon fa fa-check"></i>Error!</h4>
-            <?= Yii::$app->session->getFlash('error') ?>
-        </div>
-    <?php endif; ?>
-
-    <?php if (Yii::$app->session->hasFlash('danger')): ?>
-        <div class="alert alert-danger alert-dismissable">
-            <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-            <h4><i class="icon fa fa-check"></i>Error!</h4>
-            <?= Yii::$app->session->getFlash('danger') ?>
-        </div>
-    <?php endif; ?>
-
-    <script src='/tinymce/tinymce.min.js'></script>
-    <script>
-        tinymce.init({
-            selector: '.mytextarea',
-            height: 100,
-            menubar: true,
-            plugins: [
-                'advlist autolink lists link image charmap print preview hr anchor pagebreak',
-                'searchreplace wordcount visualblocks visualchars code fullscreen',
-                'insertdatetime media nonbreaking save table contextmenu directionality',
-                'emoticons template paste textcolor colorpicker textpattern imagetools codesample',
-                'fontawesome noneditable'
-            ],
-            toolbar: 'formatselect | bold italic strikethrough forecolor backcolor | link | alignleft aligncenter alignright alignjustify  | numlist bullist outdent indent  | removeformat | fontawesome',
-            content_css: ['https://netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css'],
-            noneditable_noneditable_class: 'fa',
-            extended_valid_elements: 'span[*]'
-        });
-        tinymce.init({
-            selector: '.mytextarea1',
-            height: 100,
-            menubar: true,
-            plugins: [
-                'textcolor colorpicker',
-            ],
-            toolbar: 'bold italic strikethrough forecolor backcolor',
-        });
-    </script>
-
-    <div id="main-wrapper">
-        <header class="topbar">
-            <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="/admin/">
-                        <span><img src="/img/footer/logo-footer.svg" class="light-logo" alt="homepage"
-                                   style="max-width: 90%;"/></span>
-                    </a>
-                </div>
-
-                <div class="navbar-collapse">
-                    <ul class="navbar-nav mr-auto">
-
-                        <li class="nav-item"><a class="nav-link nav-toggler d-block d-md-none waves-effect waves-dark"
-                                                href="javascript:void(0)"><i class="ti-menu"></i></a></li>
-                        <li class="nav-item"><a
-                                    class="nav-link sidebartoggler d-none d-lg-block d-md-block waves-effect waves-dark"
-                                    href="javascript:void(0)"><i class="icon-menu"></i></a></li>
-                        <li class="nav-item"></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-
-        <aside class="left-sidebar">
-            <div class="scroll-sidebar">
-                <nav class="sidebar-nav">
-                    <ul id="sidebarnav">
-                        <li class="user-pro"><a class="has-arrow waves-effect waves-dark" href="javascript:void(0)"
-                                                aria-expanded="false"><span class="hide-menu">Администратор</span></a>
-                            <ul aria-expanded="false" class="collapse">
-                                <li><a href="/ru/user/settings/account/"><i class="ti-settings"></i> Аккаунт</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a class="waves-effect waves-dark" href="/admin/products/" aria-expanded="false">
-                                <i class="ti-widgetized"></i>
-                                <span class="hide-menu">Продукты</span>
-                            </a>
-                        </li>
-
-                        <li class="nav-small-cap">--- SEO</li>
-                        <li>
-                            <a class="waves-effect waves-dark" href="/admin/meta/" aria-expanded="false">
-                                <i class="ti-split-v-alt"></i>
-                                <span class="hide-menu">Мета теги</span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <?
-                            echo Html::beginForm(['/site/logout'], 'post', ['style' => 'padding: 10px 35px 10px 15px']);
-                            echo Html::submitButton(
-                                'Logout (' . Yii::$app->user->identity->username . ')',
-                                ['class' => 'btn d-block w-100 p-0 waves-effect waves-dark']
-                            );
-                            echo Html::endForm(); ?>
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </aside>
-
-        <div class="page-wrapper">
-            <div class="container-fluid">
-                <?= $content //тут лежит весь контент страницы ?>
-            </div>
-        </div>
-
-        <footer class="footer">
-            <span>Created by </span>
-            <a href="http://uaitlab.com/" target="_blank" rel="nofollow"><img src="/img/logo-uaitlab-dark.png"
-                                                                              alt="uaitlab logo" height="30px"></a>
-        </footer>
+</head>
+<?php $this->beginBody() ?>
+<body class="hold-transition sidebar-mini">
+<?php if (Yii::$app->session->hasFlash('success')): ?>
+    <div class="alert alert-success alert-dismissable"
+         style="position: fixed;z-index: 99;width: 320px;left: calc(50% - 160px);top: 0;">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <h4><i class="icon fa fa-check"></i>Saved!</h4>
+        <?= Yii::$app->session->getFlash('success') ?>
     </div>
+<?php endif; ?>
 
-    <?php $this->endBody() ?>
-    </body>
-    </html>
+<?php if (Yii::$app->session->hasFlash('error')): ?>
+    <div class="alert alert-danger alert-dismissable"
+         style="position: fixed;z-index: 99;width: 320px;left: calc(50% - 160px);top: 0;">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <h4><i class="icon fa fa-check"></i>Error!</h4>
+        <?= Yii::$app->session->getFlash('error') ?>
+    </div>
+<?php endif; ?>
+
+<?php if (Yii::$app->session->hasFlash('danger')): ?>
+    <div class="alert alert-danger alert-dismissable">
+        <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
+        <h4><i class="icon fa fa-check"></i>Error!</h4>
+        <?= Yii::$app->session->getFlash('danger') ?>
+    </div>
+<?php endif; ?>
+
+<div class="wrapper">
+
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
+            </li>
+            <li class="nav-item d-none d-sm-inline-block">
+                <a href="/admin_strategy" class="nav-link">Головна</a>
+            </li>
+        </ul>
+
+<!--         Right navbar links -->
+        <ul class="navbar-nav ml-auto">
+            <!-- Messages Dropdown Menu -->
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-comments"></i>
+                    <span class="badge badge-danger navbar-badge">3</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <a href="#" class="dropdown-item">
+                        <!-- Message Start -->
+                        <div class="media">
+                            <img src="/adminlte/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                            <div class="media-body">
+                                <h3 class="dropdown-item-title">
+                                    Brad Diesel
+                                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                                </h3>
+                                <p class="text-sm">Call me whenever you can...</p>
+                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                            </div>
+                        </div>
+                        <!-- Message End -->
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <!-- Message Start -->
+                        <div class="media">
+                            <img src="/adminlte/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <div class="media-body">
+                                <h3 class="dropdown-item-title">
+                                    John Pierce
+                                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                                </h3>
+                                <p class="text-sm">I got your message bro</p>
+                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                            </div>
+                        </div>
+                        <!-- Message End -->
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <!-- Message Start -->
+                        <div class="media">
+                            <img src="/adminlte/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                            <div class="media-body">
+                                <h3 class="dropdown-item-title">
+                                    Nora Silvester
+                                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                                </h3>
+                                <p class="text-sm">The subject goes here</p>
+                                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                            </div>
+                        </div>
+                        <!-- Message End -->
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+                </div>
+            </li>
+            <!-- Notifications Dropdown Menu -->
+            <li class="nav-item dropdown">
+                <a class="nav-link" data-toggle="dropdown" href="#">
+                    <i class="far fa-bell"></i>
+                    <span class="badge badge-warning navbar-badge">15</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                    <span class="dropdown-header">15 Notifications</span>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-envelope mr-2"></i> 4 new messages
+                        <span class="float-right text-muted text-sm">3 mins</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-users mr-2"></i> 8 friend requests
+                        <span class="float-right text-muted text-sm">12 hours</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item">
+                        <i class="fas fa-file mr-2"></i> 3 new reports
+                        <span class="float-right text-muted text-sm">2 days</span>
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-slide="true" href="/admin_strategy/auth/logout" role="button">
+                    <i class="fas fa-sign-out-alt"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+        <!-- Brand Logo -->
+        <a href="/admin_strategy" class="brand-link" style="display: flex;">
+            <img src="/img/footer/logo-footer.svg" alt="AdminLTE Logo" class="brand-image"
+                 style="width: 100%; margin: 0; ">
+        </a>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
+                    data-accordion="false">
+                    <!-- Add icons to the links using the .nav-icon class
+                         with font-awesome or any other icon font library -->
+<!--                    <li class="nav-item menu-open">-->
+<!--                        <a href="#" class="nav-link active">-->
+<!--                            <i class="nav-icon fas fa-tachometer-alt"></i>-->
+<!--                            <p>-->
+<!--                                Starter Pages-->
+<!--                                <i class="right fas fa-angle-left"></i>-->
+<!--                            </p>-->
+<!--                        </a>-->
+<!--                        <ul class="nav nav-treeview">-->
+<!--                            <li class="nav-item">-->
+<!--                                <a href="#" class="nav-link active">-->
+<!--                                    <i class="far fa-circle nav-icon"></i>-->
+<!--                                    <p>Active Page</p>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                            <li class="nav-item">-->
+<!--                                <a href="#" class="nav-link">-->
+<!--                                    <i class="far fa-circle nav-icon"></i>-->
+<!--                                    <p>Inactive Page</p>-->
+<!--                                </a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </li>-->
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">
+                            <i class="fas fa-briefcase"></i>
+                            <p>Кейси</p>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- /.sidebar-menu -->
+        </div>
+        <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0"><?= $this->title ?></h1>
+                    </div>
+                    <div class="col-sm-6">
+                        <?= Breadcrumbs::widget([
+                            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+                        ]) ?>
+<!--                        <ol class="breadcrumb float-sm-right">-->
+<!--                            <li class="breadcrumb-item"><a href="#">Home</a></li>-->
+<!--                            <li class="breadcrumb-item active">Starter Page</li>-->
+<!--                        </ol>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.content-header -->
+
+        <!-- Main content -->
+        <div class="content">
+            <div class="container-fluid">
+                <?= $content ?>
+            </div>
+        </div>
+    </div>
+    <!-- /.content-wrapper -->
+
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+        <div class="p-3">
+            <h5>Title</h5>
+            <p>Sidebar content</p>
+        </div>
+    </aside>
+    <!-- /.control-sidebar -->
+
+    <!-- Main Footer -->
+    <footer class="main-footer">
+        <strong>Created by &copy; <a href="https://uaitlab.com" target="_blank">UaItLab</a>.</strong> All rights reserved.
+    </footer>
+</div>
+<!-- ./wrapper -->
+
+<?php $this->endBody() ?>
+</body>
+</html>
 <?php $this->endPage() ?>

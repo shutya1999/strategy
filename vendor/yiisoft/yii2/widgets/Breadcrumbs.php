@@ -57,12 +57,12 @@ class Breadcrumbs extends Widget
     /**
      * @var string the name of the breadcrumb container tag.
      */
-    public $tag = 'div';
+    public $tag = 'ul';
     /**
      * @var array the HTML attributes for the breadcrumb container tag.
      * @see \yii\helpers\Html::renderTagAttributes() for details on how attributes are being rendered.
      */
-    public $options = ['class' => 'breadcrumbs'];
+    public $options = ['class' => 'breadcrumb'];
     /**
      * @var bool whether to HTML-encode the link labels.
      */
@@ -116,12 +116,12 @@ class Breadcrumbs extends Widget
      * @var string the template used to render each inactive item in the breadcrumbs. The token `{link}`
      * will be replaced with the actual HTML link for each inactive item.
      */
-    public $itemTemplate = "{link}\n<span class='separator'>/</span>";
+    public $itemTemplate = "<li>{link}</li>\n";
     /**
      * @var string the template used to render each active item in the breadcrumbs. The token `{link}`
      * will be replaced with the actual HTML link for each active item.
      */
-    public $activeItemTemplate = "<p>{link}</p>";
+    public $activeItemTemplate = "<li class=\"active\">{link}</li>\n";
 
 
     /**

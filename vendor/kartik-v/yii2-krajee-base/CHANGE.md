@@ -1,6 +1,26 @@
 Change Log: `yii2-krajee-base`
 ==============================
 
+## Version 3.0.1
+
+**Date:** 03-Sep-2021
+
+- Add BootstrapIconsAsset bundle.
+- Enhancements to support Bootstrap v5.x.
+
+## Version 3.0.0
+
+**Date:** 01-Sep-2021
+
+- (enh #113): Add bootstrap 5.x support.
+- Create new major release for Bootstrap v5.x support
+
+## Version 2.0.6
+
+**Date:** 08-Apr-2021
+
+- (enh #112): Add new bootstrap CSS Class map `BS_PANEL_SECONDARY`.
+
 ## Version 2.0.5
 
 **Date:** 13-Mar-2019
